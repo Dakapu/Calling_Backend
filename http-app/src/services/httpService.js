@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 //use(success, error)
 axios.interceptors.response.use(null, (error) => {
@@ -9,7 +10,7 @@ axios.interceptors.response.use(null, (error) => {
 
   if (!expectedError) {
     console.log("Logging the error", error);
-    alert("Something failed while deleting a post!");
+    toast.error("Something failed while deleting a post!");
   }
   return Promise.reject(error);
 });
